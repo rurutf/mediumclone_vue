@@ -55,7 +55,7 @@ export default {
     methods: {
         onSubmit() {
             console.log('subbmited form')
-            this.$store.dispatch('register')
+            this.$store.dispatch('register', {email: 'rererertetet@mail.ru', usrname: '0ifif8', password: 'uyuyuy'})
         }
     }
 };
