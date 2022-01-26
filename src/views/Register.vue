@@ -13,6 +13,7 @@
                     <form @submit.prevent="onSubmit">
                         <fieldset class="form-group">
                             <input
+                                v-model="username"
                                 type="text"
                                 class="form-control form-control-lg"
                                 placeholder="Username"
@@ -20,6 +21,7 @@
                         </fieldset>
                         <fieldset class="form-group">
                             <input
+                                v-model="email"
                                 type="text"
                                 class="form-control form-control-lg"
                                 placeholder="Email"
@@ -27,6 +29,7 @@
                         </fieldset>
                         <fieldset class="form-group">
                             <input
+                                v-model="password"
                                 type="password"
                                 class="form-control form-control-lg"
                                 placeholder="Password"
@@ -34,7 +37,8 @@
                         </fieldset>
                         <button
                             class="btn btn-lg btn-primary pull-xs-right"
-                            :disabled="isSubmitting">
+                            :disabled="isSubmitting"
+                        >
                             Sign Up
                         </button>
                     </form>
@@ -47,17 +51,32 @@
 <script>
 export default {
     name: 'McvRegister',
+    data() {
+        return {
+            email: '',
+            username: '',
+            password: '',
+        };
+    },
     computed: {
         isSubmitting() {
-            return this.$store.state.auth.isSubmitting
-        }
+            return this.$store.state.auth.isSubmitting;
+        },
     },
     methods: {
         onSubmit() {
-            console.log('subbmited form')
-            this.$store.dispatch('register', {email: 'rererertetet@mail.ru', usrname: '0ifif8', password: 'uyuyuy'})
-        }
-    }
+            console.log('subbmited form');
+            this.$store.dispatch('register', {
+                email: this.email,
+                username: this.username,
+                password: this.password,
+            })
+            .then(user => {
+                console.log('successfully register user', user)
+                this.$router.push({name: 'home'})
+            })
+        },
+    },
 };
 </script>
 
