@@ -1,4 +1,5 @@
 import authApi from '@/api/auth.js';
+import {setItem} from '@/helpers/persistanceStorage';
 
 const state = {
     isSibmitting: false,
@@ -31,6 +32,7 @@ const actions = {
                 .register(credentials)
                 .then((responce) => {
                     context.commit('registerSuccess', responce.data.user);
+                    setItem('accessToken', responce.data.user.token); //key и data из persistanceStorage
                     resolve(responce.data.user);
                 })
                 .catch((result) => {
