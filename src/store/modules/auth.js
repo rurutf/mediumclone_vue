@@ -22,6 +22,25 @@ export const actionTypes = {
     register: '[auth] register',
     login: '[login] login',
 };
+
+export const getterTypes = {
+    currentUser: '[auth] currentUser',
+    isLoggedIn: '[auth] isLoggedIn',
+    isAnonymous: '[auth] isAnonymous',
+};
+
+export const getters = {
+    [getterTypes.currentUser]: (state) => {
+        return state.currentUser;
+    },
+    [getterTypes.isLoggedIn]: (state) => {
+        return Boolean(state.isLoggedIn); // приведение к булевому значению
+    },
+    [getterTypes.isAnonymous]: (state) => {
+        return state.isAnonymous === false; //getter не сработает, когда у нас null
+    },
+};
+
 const mutations = {
     [mutationTypes.registerStart](state) {
         state.isSubmitting = true;
@@ -99,4 +118,5 @@ export default {
     state,
     mutations,
     actions,
+    getters,
 };

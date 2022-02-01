@@ -10,17 +10,56 @@
                 <li class="nav-item">
                     <router-link
                         :to="{name: 'home'}"
-                        class="nav-link">
+                        class="nav-link"
+                        active-class="active"
+                        exact>
                         Home
                     </router-link>
                 </li>
-                <template
-                    v-if="isLoggetIn">
+                <template v-if="isLoggetIn">
                     <li class="nav-item">
                         <router-link
-                            :to="{name: 'home'}"
-                            class="nav-link">
+                            :to="{name: 'createArticle'}"
+                            class="nav-link"
+                            active-class="active">
                             <i class="ion-compose"></i> &nbsp; New Article
+                        </router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link
+                            :to="{name: 'settings'}"
+                            class="nav-link"
+                            active-class="active">
+                            <i class="ion-gear-a"></i> &nbsp; Settings
+                        </router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link
+                            :to="{name: 'userProfile', params: {slug: currentUser.username}}"
+                            class="nav-link">
+                            <img
+                                class="user-pi"
+                                :src="currentUser.image" />
+                            &nbsp;
+                            {{currentUser.username}}
+                        </router-link>
+                    </li>
+                </template>
+                <template v-if="isAnonymous">
+                    <li class="nav-item">
+                        <router-link
+                            :to="{name: 'login'}"
+                            class="nav-link"
+                            active-class="active">
+                            Sign in
+                        </router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link
+                            :to="{name: 'register'}"
+                            class="nav-link"
+                            active-class="active">
+                            Sign up
                         </router-link>
                     </li>
                 </template>
@@ -30,14 +69,16 @@
 </template>
 
 <script>
-import {mapState} from "vuex" ;
+import {mapGetters} from "vuex" ;
+import {getterTypes} from "@/store/modules/auth";
 
 export default {
     name: "MvcTopbar",
     computed: {
-        ...mapState ({
-            currentUser: state => state.auth.currentUser,
-            isLoggetIn: state => state.auth.isLoggetIn,
+        ...mapGetters({
+            currentUser: getterTypes.currentUser,
+            isLoggedIn: getterTypes.isLoggedIn,
+            isAnonymous: getterTypes.isAnonymous,
         }),
     },
 }

@@ -1,5 +1,5 @@
 <template>
-    <div>Here are sharable validation errors</div>
+    <div>
     <ul class="error-messages">
         <li
             v-for="errorMessage in errorMessages"
@@ -7,6 +7,7 @@
             {{errorMessage}}
         </li>
     </ul>
+    </div>
 </template>
 
 <script>
