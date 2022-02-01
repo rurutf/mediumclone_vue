@@ -57,13 +57,13 @@ const actions = {
             context.commit(mutationTypes.registerStart);
             authApi
                 .register(credentials)
-                .then((responce) => {
+                .then((response) => {
                     context.commit(
                         mutationTypes.registerSuccess,
-                        responce.data.user
+                        response.data.user
                     );
-                    setItem('accessToken', responce.data.user.token); //key и data из persistanceStorage
-                    resolve(responce.data.user);
+                    setItem('accessToken', response.data.user.token); //key и data из persistanceStorage
+                    resolve(response.data.user);
                 })
                 .catch((result) => {
                     context.commit(
@@ -78,13 +78,13 @@ const actions = {
             context.commit(mutationTypes.loginStart);
             authApi
                 .login(credentials)
-                .then((responce) => {
+                .then((response) => {
                     context.commit(
                         mutationTypes.loginSuccess,
-                        responce.data.user
+                        response.data.user
                     );
-                    setItem('accessToken', responce.data.user.token); //key и data из persistanceStorage
-                    resolve(responce.data.user);
+                    setItem('accessToken', response.data.user.token); //key и data из persistanceStorage
+                    resolve(response.data.user);
                 })
                 .catch((result) => {
                     context.commit(
