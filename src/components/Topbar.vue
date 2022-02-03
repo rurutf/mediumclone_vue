@@ -16,7 +16,7 @@
                         Home
                     </router-link>
                 </li>
-                <template v-if="isLoggetIn">
+                <template v-if="isLoggedIn">
                     <li class="nav-item">
                         <router-link
                             :to="{name: 'createArticle'}"
