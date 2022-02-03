@@ -6,7 +6,7 @@ import Login from '@/views/Login';
 const routes = [
     {
         path: '/',
-        name: 'home',
+        name: 'globalFeed',
         component: GlobalFeed,
     },
     {
