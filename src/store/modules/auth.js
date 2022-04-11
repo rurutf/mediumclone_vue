@@ -2,7 +2,7 @@ import authApi from '@/api/auth.js';
 import {setItem} from '@/helpers/persistanceStorage';
 
 const state = {
-    isSibmitting: false,
+    isSubmitting: false,
     isLoading: false,
     currentUser: null,
     validationErrors: null,
@@ -40,7 +40,7 @@ export const getters = {
         return state.currentUser;
     },
     [getterTypes.isLoggedIn]: (state) => {
-        return Boolean(state.isLoggedIn); // приведение к булевому значению
+        return Boolean(state.isLoggedIn);
     },
     [getterTypes.isAnonymous]: (state) => {
         return state.isAnonymous === false; //getter не сработает, когда у нас null
