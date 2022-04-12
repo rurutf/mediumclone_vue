@@ -91,6 +91,7 @@ const mutations = {
 
 const actions = {
     [actionTypes.register](context, credentials) {
+        // promise нужен для того, чтобы подписаться на него в компоненте
         return new Promise((resolve) => {
             context.commit(mutationTypes.registerStart);
             authApi
