@@ -101,7 +101,7 @@ const actions = {
                         mutationTypes.registerSuccess,
                         response.data.user
                     );
-                    setItem('accessToken', response.data.user.token); //key и data из persistanceStorage
+                    setItem('accessToken', response.data.user.token);
                     resolve(response.data.user);
                 })
                 .catch((result) => {

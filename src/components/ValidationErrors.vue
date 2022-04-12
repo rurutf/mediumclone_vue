@@ -1,12 +1,12 @@
 <template>
     <div>
-    <ul class="error-messages">
-        <li
-            v-for="errorMessage in errorMessages"
-            :key="errorMessage">
-            {{errorMessage}}
-        </li>
-    </ul>
+        <ul class="error-messages">
+            <li
+                v-for="errorMessage in errorMessages"
+                :key="errorMessage">
+                {{errorMessage}}
+            </li>
+        </ul>
     </div>
 </template>
 
