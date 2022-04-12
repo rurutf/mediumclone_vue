@@ -9,6 +9,7 @@ const state = {
     isLoggedIn: null,
 };
 
+// объекты созданы для удобства, чтобы легче дебажить
 export const mutationTypes = {
     registerStart: '[auth] registerStart',
     registerSuccess: '[auth] registerSuccess',
@@ -122,7 +123,7 @@ const actions = {
                         mutationTypes.loginSuccess,
                         response.data.user
                     );
-                    setItem('accessToken', response.data.user.token); //key и data из persistanceStorage
+                    setItem('accessToken', response.data.user.token);
                     resolve(response.data.user);
                 })
                 .catch((result) => {
@@ -143,7 +144,7 @@ const actions = {
                         mutationTypes.getCurrentUserSuccess,
                         response.data.user
                     );
-                    resolve(response.data.user); // возвращает даннные пользователя
+                    resolve(response.data.user);
                 })
                 .catch(() => {
                     context.commit(mutationTypes.getCurrentUserFailure);

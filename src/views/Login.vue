@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import {mapState} from "vuex" //функция-хелпер, помогает проще псиать компьютед пропертис
+import {mapState} from "vuex"
 
 import McvValidationErrors from '@/components/ValidationErrors'
 import {actionTypes} from "@/store/modules/auth"
@@ -71,9 +71,9 @@ export default {
                 email: this.email,
                 password: this.password,
             })
-                .then(() => {
-                    this.$router.push({name: 'globalFeed'})
-                })
+            .then(() => {
+                this.$router.push({name: 'globalFeed'})
+            })
         },
     },
 }
