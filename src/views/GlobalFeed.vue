@@ -1,8 +1,18 @@
 <template>
-    <div>
-        111
+    <div class="home-page">
+        BANNER
+        <div class="container page">
+            <div class="row">
+                <div class="col-md-9">
+                    <McvFeed
+                        :apiUrl="apiUrl"/>
+                </div>
+                <div class="col-md-3">
+                    POPULAR TAGS
+                </div>
+            </div>
+        </div>
     </div>
-    <McvFeed />
 </template>
 
 <script>
@@ -11,6 +21,11 @@ export default {
     name: "McvGlobalFeed",
     components: {
         McvFeed,
-    }
+    },
+    data() {
+        return {
+            apiUrl: "/articles",
+        }
+    },
 }
 </script>

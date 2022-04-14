@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import McvTopbar from "@/components/Topbar";
-import actionTypes from "@/store/modules/auth"
+import McvTopbar from '@/components/Topbar';
+import actionTypes from '@/store/modules/auth';
 
 export default {
     name: 'App',

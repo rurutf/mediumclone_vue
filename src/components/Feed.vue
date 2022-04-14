@@ -4,6 +4,12 @@
 
 <script>
 export default {
-    name: "McvFeed"
+    name: "McvFeed",
+    props: {
+        apiUrl: {
+            type: String,
+            required: true,
+        }
+    }
 }
 </script>
