@@ -1,18 +1,18 @@
 <template>
     <div id="nav">
-        <MvcTopbar />
-        <router-view />
+        <McvTopbar />
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
-import MvcTopbar from "@/components/Topbar";
+import McvTopbar from "@/components/Topbar";
 import actionTypes from "@/store/modules/auth"
 
 export default {
-    name: 'MvcApp',
+    name: 'App',
     components: {
-        MvcTopbar,
+        McvTopbar,
     },
     mounted() {
         this.$store.dispatch(actionTypes.getCurrentUser)
