@@ -5,8 +5,9 @@ axios.defaults.baseURL = 'https://conduit.productionready.io/api';
 
 axios.interceptors.request.use((config) => {
     const token = getItem('accessToken');
-    const authorizationToken = token ? `Token ${token}` : '';
-    config.headers.Authorization = authorizationToken;
-    return config; // это то, что передается внутрь axios и генерирует axios, чтобы сделать запрос
+    const authorizisationToken = token ? `Token ${token}` : '';
+    config.headers.Authorization = authorizisationToken;
+    return config;
 });
+
 export default axios;
